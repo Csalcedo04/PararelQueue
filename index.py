@@ -50,8 +50,6 @@ def serial(q:Queue, folder_path:str , output_file:str)->None:
 
 #Threads
 def threads_producer(q:Queue, folder_path:str)->None:
-    # The producers read text from a collection of files, one per producer.
-    # They insert lines of text into a single shared queue
     with open(folder_path, 'r', encoding='utf-8') as output:
        for line in output:
            q.put(line)
@@ -163,7 +161,6 @@ colas en multiprocessing"""
 #             output.write(str(unique_words)) 
 
 if __name__ == '__main__':
-    # Example usage
     while True:
         folder_path = input("Dijite un directorio con archivos .txt: ")
         if es_directorio(folder_path) == True:
@@ -174,7 +171,6 @@ if __name__ == '__main__':
 
     mutex = th.Lock()
 
-    # folder_path = 'C:/Users/salce/Documents/universidad/Comp.paralelo/rp11/tests'  # RECUERDA PONER PARA QUE EL USUARIO COLOQUE EL PATH
 
     #serial
     output_file = 'Carlos_output.txt'
